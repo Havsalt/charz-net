@@ -1,3 +1,4 @@
+from __future__ import annotations
 # TODO: Implement `Server` mixin class for `charz_core.Engine`
 
 from socket import socket as Socket
