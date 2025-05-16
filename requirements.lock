@@ -10,9 +10,9 @@
 #   universal: false
 
 -e file:.
-charz-core==0.1.0.dev2
+charz-core==0.1.0.dev9
     # via charz-net
-linflex==0.2.2
+linflex==0.3.1
     # via charz-core
 typing-extensions==4.13.2
     # via charz-core
