@@ -6,6 +6,7 @@ from typing import Any
 from charz_core import Self
 
 from ._socket_setup import SocketSetup
+from ._annotations import Host, Port
 
 
 class Server:  # Component (mixin class)
@@ -32,5 +33,5 @@ class Server:  # Component (mixin class)
         return self._socket
 
     @property
-    def address(self) -> tuple[str, int | str]:
+    def address(self) -> tuple[Host, Port]:
         return (self.socket_setup.host, self.socket_setup.port)
