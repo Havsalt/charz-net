@@ -10,6 +10,7 @@ from ._socket_setup import SocketSetup
 
 class Server:  # Component (mixin class)
     socket_setup: SocketSetup
+    backlog: int | None = None
     _socket: Socket  # Read-only
 
     def __new__(cls, *args: Any, **kwargs: Any) -> Self:
@@ -19,6 +20,10 @@ class Server:  # Component (mixin class)
             instance.socket_setup.socket_kind,
         )
         instance.socket.bind(instance.address)
+        if instance.backlog is None:
+            instance.socket.listen()  # Uses default backlog
+        else:
+            instance.socket.listen(instance.backlog)
         # TODO: Start new thread that listens
         return instance
 
